@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Services\CourseService;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CourseResource;
+use App\Http\Requests\StoreUpdateCourse;
 
 class CourseController extends Controller
 {
@@ -30,9 +31,11 @@ class CourseController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUpdateCourse $request)
     {
-        //
+        $course = $this->courseService->createNewCourse($request->validated());
+
+        return new CourseResource($course);
     }
 
     /**
