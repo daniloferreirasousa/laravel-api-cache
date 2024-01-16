@@ -48,16 +48,19 @@ class CourseController extends Controller
         return new CourseResource($course);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+
+    public function update(StoreUpdateCourse $request, string $identify)
     {
-        //
+        $this->courseService->updateCourse($identify, $request->validated());
+
+        return response()->json(['message' => 'updated']);
     }
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param string $identify
+     * @return void
      */
     public function destroy(string $identify)
     {
