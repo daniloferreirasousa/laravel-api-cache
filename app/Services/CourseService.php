@@ -22,4 +22,15 @@ class CourseService
     {
         return $this->repository->createNewCourse($data);
     }
+
+
+    public function getCourse(string $identify)
+    {
+        return $this->repository->getCourseByUuid($identify);
+    }
+
+    public function deleteCourse(string $identify)
+    {
+        return $this->repository->deleteCourseByUuid($identify);
+    }
 }

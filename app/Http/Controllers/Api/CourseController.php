@@ -41,9 +41,11 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $identify)
     {
-        //
+        $course = $this->courseService->getCourse($identify);
+
+        return new CourseResource($course);
     }
 
     /**
@@ -57,8 +59,10 @@ class CourseController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $identify)
     {
-        //
+        $this->courseService->deleteCourse($identify);
+
+        return response()->json([], 204);
     }
 }
