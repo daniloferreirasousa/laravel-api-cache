@@ -2,22 +2,20 @@
 
 namespace App\Models;
 
-use App\Models\Module;
+use App\Models\Course;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Course extends Model
+class Module extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'description',
-        'uuid',
+        'name'
     ];
 
-    public function modules()
+    public function course()
     {
-        return $this->hasMany(Module::class);
+        return $this->belongsTo(Course::class);
     }
 }
