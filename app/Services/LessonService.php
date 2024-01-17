@@ -2,6 +2,9 @@
 
 namespace App\Services;
 
+use App\Repositories\LessonRepository;
+use App\Repositories\ModuleRepository;
+
 class LessonService
 {
     protected $lessonRepository, $moduleRepository;

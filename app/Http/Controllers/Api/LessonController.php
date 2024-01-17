@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
+use App\Services\LessonService;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\LessonResource;
 use App\Http\Requests\StoreUpdateLesson;
@@ -31,7 +32,7 @@ class LessonController extends Controller
      */
     public function store(StoreUpdateLesson $request, string $module)
     {
-        $lesson = $this->lessonService->createNewLesson($request->validated);
+        $lesson = $this->lessonService->createNewLesson($request->validated());
 
         return new LessonResource($lesson);
     }

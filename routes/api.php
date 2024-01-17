@@ -4,7 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\{
     CourseController,
-    ModuleController
+    ModuleController,
+    LessonController
 };
 
 Route::apiResource('/modules/{module}/lessons', LessonController::class);

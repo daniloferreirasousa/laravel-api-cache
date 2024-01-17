@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('module_id')->constrained('modules');
+            $table->uuid('uuid');
+            $table->string('name')->unique();
+            $table->string('video')->unique(); // URL
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

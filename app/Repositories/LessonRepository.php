@@ -2,20 +2,20 @@
 
 namespace App\Repositories;
 
+use App\Models\Lesson;
+
 class LessonRepository
 {
     protected $entity;
 
-    public function __contruct(Lesson $lesson)
+    public function __construct(Lesson $lesson)
     {
         $this->entity = $lesson;
     }
 
     public function getLessonsModule(int $moduleId)
     {
-        return $this->entity
-                        ->where('module_id', $moduleId)
-                        ->get();
+        return $this->entity->where('module_id', $moduleId)->get();
     }
 
     public function createNewLesson(int $moduleId, array $data)

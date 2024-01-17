@@ -29,7 +29,7 @@ class ModuleRepository
 
     public function  getModuleByUuid(string $identify)
     {
-        return $this->entity->where('uuid', $identify);
+        return $this->entity->where('uuid', $identify)->firstOrFail();
     }
 
     public function getModuleByCourse(int $courseId, string $identify)
