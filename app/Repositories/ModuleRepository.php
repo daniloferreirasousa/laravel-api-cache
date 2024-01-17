@@ -46,12 +46,16 @@ class ModuleRepository
 
         $data['course_id'] = $courseId;
 
+        Cache::forget('courses');
+
         return $module->update($data);
     }
 
     public function deleteModuleByUuid(string $identify)
     {
         $module = $this->getModuleByUuid($identify);
+
+        Cache::forget('courses');
 
         return $module->delete();
     }

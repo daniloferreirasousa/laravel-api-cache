@@ -41,12 +41,16 @@ class LessonRepository
 
         $data['module_id'] = $moduleId;
 
+        Cache::forget('courses');
+
         return $lesson->update($data);
     }
 
     public function deleteLessonByUuid(string $identify)
     {
         $lesson = $this->entity->where('uuid', $identify);
+
+        Cache::forget('courses');
 
         return $lesson->delete();
     }
