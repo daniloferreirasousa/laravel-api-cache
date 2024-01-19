@@ -50,7 +50,7 @@ class ModuleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoraUpdateModule $request, $course, $identify)
+    public function update(StoreUpdateModule $request, $course, $identify)
     {
         $this->moduleService->updateModule($identify, $request->validated());
 

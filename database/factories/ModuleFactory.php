@@ -20,7 +20,7 @@ class ModuleFactory extends Factory
     public function definition(): array
     {
         return [
-            'course'    => Course::factory(),
+            'course_id'    => Course::factory(),
             'name'  => $this->faker->unique()->name(),
         ];
     }
