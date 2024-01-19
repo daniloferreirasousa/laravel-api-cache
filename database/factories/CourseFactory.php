@@ -20,7 +20,7 @@ class CourseFactory extends Factory
     {
         return [
             'name'  => $this->faker->unique()->name(),
-            'description'   => $this->faker->senetence(10),
+            'description'   => $this->faker->sentence(10),
         ];
     }
 }
